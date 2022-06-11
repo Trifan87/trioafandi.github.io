@@ -28,5 +28,142 @@
                 <li>Penerapan Sistem Operasional Perusahaan / Sistem Pengendalian Internal</li>
             </ol>
         </p>
+        <p>
+            <h3 align="center">Harga Paket Jasa Mahir Konsultan :</h3>
+            <table cellpadding="10">
+                <tr>
+                    <th rowspan="2">Jenis Paket</th>
+                    <th colspan="2">Harga Paket/Bulan</th>
+                    <th rowspan="2">Keterangan</th>
+                </tr>
+                <tr>
+                    <th>Yayasan Non Profit</th>
+                    <th>Personal / UMKM / Profit</th>
+                </tr>
+                <tr>
+                    <td>Konsultasi/Pertemuan/Kunjungan</td>
+                    <td>Akomodasi PP</td>
+                    <td>Akomodasi PP</td>
+                    <td>Berdasarkan Pengeluaran</td>
+                </tr>
+                <tr>
+                    <td>Software Pembukuan Paket 1</td>
+                    <td>Diajukan</td>
+                    <td><u>+</u> Rp.50.000</td>
+                    <td>Menu : Kas Bank, Hutang-Piutang</td>
+                </tr>
+                <tr>
+                    <td>Software Pembukuan Paket 2</td>
+                    <td>Diajukan</td>
+                    <td><u>+</u> Rp.500.000</td>
+                    <td>Laporan Keuangan</td>
+                </tr>
+                <tr>
+                    <td>Include Perpajakan</td>
+                    <td>Diajukan</td>
+                    <td><u>+</u> Rp.3.500.000</td>
+                    <td>Laporan Keuangan + Pajak</td>
+                </tr>
+                <tr>
+                    <td>Penerapan SOP/SPI/Manajerial Mutu</td>
+                    <td>Proses Penawaran</td>
+                    <td>Proses Penawaran</td>
+                    <td>Berdasarkan Kebutuhan Pasca Kunjungan</td>
+                </tr>
+            </table>
+            <br>
+            Untuk memilih jasa tersebut, silakan isi data berikut ini :
+        </p>
+        <h3 align="center">Pengajuan Paket</h3>
+        <div class="container">
+            <div class="row">
+                <div class="col-25">
+                  <label for="nama">Nama</label>
+                </div>
+                <div class="col-75">
+                  <input type="text" id="nama" placeholder="Masukan Nama Anda">
+                </div>
+            </div>
+            <div class="row">
+              <div class="col-25">
+                <label for="nwa">Nomer WA</label>
+              </div>
+              <div class="col-75">
+                <input type="text" id="nwa" placeholder="contoh 6281212341234">
+              </div>
+            </div>
+            <div class="row">
+                <div class="col-25">
+                  <label for="email">Email</label>
+                </div>
+                <div class="col-75">
+                  <input type="text" id="email" placeholder="Masukan Email Anda">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-25">
+                  <label for="jpaket">Jenis Paket</label>
+                </div>
+                <div class="col-75">
+                  <select type="text" id="jpaket" placeholder="Pilihlah jenis paketnya">
+                    <option></option>
+                    <option>Konsultasi/Pertemuan/Kunjungan</option>
+                    <option>Software Pembukuan Paket 1</option>
+                    <option>Software Pembukuan Paket 2</option>
+                    <option>Include Perpajakan</option>
+                    <option>Penerapan SOP/SPI/Manajerial Mutu</option>
+                  </select>
+                </div>
+                <div class="row">
+                    <div class="col-25">
+                      <label for="ctt">Pesan / Catatan</label>
+                    </div>
+                    <div class="col-75">
+                      <textarea id="ctt" name="ctt" placeholder="Masukan Catatan Anda" style="height:50px"></textarea>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <div>
+              <center>
+                <button id="tbl">Proses</button>
+              </center>
+            </div>
+        </div>
+    </div>
+    <script>
+        var tanpa_rupiah = document.getElementById('nwa');
+	    tanpa_rupiah.addEventListener('keyup', function(e){
+		tanpa_rupiah.value = formatRupiah(this.value);
+	    });
+	    tanpa_rupiah.addEventListener('keydown', function(event){
+  		limitCharacter(event);
+	    });
+
+        function formatRupiah(bilangan, prefix){
+		var number_string = bilangan.replace(/[^,\d]/g, '').toString(),
+		split	= number_string.split(','),
+		sisa 	= split[0].length % 3,
+		rupiah 	= split[0].substr(0, sisa),
+		ribuan 	= split[0].substr(sisa).match(/\d{1,3}/gi);
+			
+		if (ribuan) {
+		separator = sisa ? '.' : '';
+		rupiah += separator + ribuan.join('.');
+		}
+		
+		rupiah = split[1] != undefined ? rupiah + ',' + split[1] : rupiah;
+		return prefix == undefined ? rupiah : (rupiah ? 'Rp. ' + rupiah : '');
+	    }
+	
+	    function limitCharacter(event){
+		key = event.which || event.keyCode;
+		if ( key != 188 
+			&& key != 8 
+			&& key != 17 && key != 86 & key != 67
+			&& (key < 48 || key > 57)){
+		event.preventDefault();
+		return false;}}
+    </script>
 </body>
 </html>
