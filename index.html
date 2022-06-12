@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mahir</title>
+    <title>Mahir Center</title>
     <link rel="stylesheet" href="stylelat1.css">
 </head>
 <body>
@@ -13,6 +13,7 @@
             <p class="atas-teks">
                 <img src="mahir11.png" widht="50" height="50"> &emsp; <a href="">Mahir Center</a>
             </p>
+            <br>
         </div>
         <div class="gambar" align="center">
             <img src="mahir6.png">
@@ -72,98 +73,7 @@
                 </tr>
             </table>
             <br>
-            Untuk memilih jasa tersebut, silakan isi data berikut ini :
+            <a href = "http://mahircenter.com"><center><button class="btn biru"><br>Info Lebih Lanjut<br></button></center></a>
         </p>
-        <h3 align="center">Pengajuan Paket</h3>
-        <div class="container">
-            <div class="row">
-                <div class="col-25">
-                  <label for="nama">Nama</label>
-                </div>
-                <div class="col-75">
-                  <input type="text" id="nama" placeholder="Masukan Nama Anda">
-                </div>
-            </div>
-            <div class="row">
-              <div class="col-25">
-                <label for="nwa">Nomer WA</label>
-              </div>
-              <div class="col-75">
-                <input type="text" id="nwa" placeholder="contoh 6281212341234">
-              </div>
-            </div>
-            <div class="row">
-                <div class="col-25">
-                  <label for="email">Email</label>
-                </div>
-                <div class="col-75">
-                  <input type="text" id="email" placeholder="Masukan Email Anda">
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-25">
-                  <label for="jpaket">Jenis Paket</label>
-                </div>
-                <div class="col-75">
-                  <select type="text" id="jpaket" placeholder="Pilihlah jenis paketnya">
-                    <option></option>
-                    <option>Konsultasi/Pertemuan/Kunjungan</option>
-                    <option>Software Pembukuan Paket 1</option>
-                    <option>Software Pembukuan Paket 2</option>
-                    <option>Include Perpajakan</option>
-                    <option>Penerapan SOP/SPI/Manajerial Mutu</option>
-                  </select>
-                </div>
-                <div class="row">
-                    <div class="col-25">
-                      <label for="ctt">Pesan / Catatan</label>
-                    </div>
-                    <div class="col-75">
-                      <textarea id="ctt" name="ctt" placeholder="Masukan Catatan Anda" style="height:50px"></textarea>
-                    </div>
-                </div>
-            </div>
-            <br>
-            <div>
-              <center>
-                <button id="tbl">Proses</button>
-              </center>
-            </div>
-        </div>
-    </div>
-    <script>
-        var tanpa_rupiah = document.getElementById('nwa');
-	    tanpa_rupiah.addEventListener('keyup', function(e){
-		tanpa_rupiah.value = formatRupiah(this.value);
-	    });
-	    tanpa_rupiah.addEventListener('keydown', function(event){
-  		limitCharacter(event);
-	    });
-
-        function formatRupiah(bilangan, prefix){
-		var number_string = bilangan.replace(/[^,\d]/g, '').toString(),
-		split	= number_string.split(','),
-		sisa 	= split[0].length % 3,
-		rupiah 	= split[0].substr(0, sisa),
-		ribuan 	= split[0].substr(sisa).match(/\d{1,3}/gi);
-			
-		if (ribuan) {
-		separator = sisa ? '.' : '';
-		rupiah += separator + ribuan.join('.');
-		}
-		
-		rupiah = split[1] != undefined ? rupiah + ',' + split[1] : rupiah;
-		return prefix == undefined ? rupiah : (rupiah ? 'Rp. ' + rupiah : '');
-	    }
-	
-	    function limitCharacter(event){
-		key = event.which || event.keyCode;
-		if ( key != 188 
-			&& key != 8 
-			&& key != 17 && key != 86 & key != 67
-			&& (key < 48 || key > 57)){
-		event.preventDefault();
-		return false;}}
-    </script>
 </body>
 </html>
