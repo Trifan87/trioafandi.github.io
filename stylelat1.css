@@ -5,15 +5,94 @@
     margin-right: 10%;
     margin-top: 0;
 }
-.atas{
-    width: 100%;
-    line-height: 0ch;
-    position: relative;
-    background-color: gray;
+nav {
+    overflow: hidden;
+    width: 75%;
+    background: linear-gradient(to right,gray,white);
+    position: fixed;
+    top: 0;
+    height: 60px;
+    display: flex;
+    justify-content: space-around;
 }
-.atas-teks{
-    left: 50%;
-    top: 50%;
+nav .logo{
+    font-size: 1.rem;
+    width: 30%;
+    left: -35px;
+    position: relative;
+    top: -18px;
+}
+nav .logo img{
+    padding-top: 20px;
+    width: 60px;
+}
+nav li{
+    display: inline;
+}
+nav a {
+    text-decoration: none;
+    color: rgb(78,78,71);
+    font-family: Arial;
+    padding: 0px 10px;
+    font-weight: bold;
+    transition: 0.15s;
+}
+nav a:hover {
+    color: green;
+}
+#nav-button {
+    display: none;
+}
+label {
+    display: none;
+}
+@media only screen and (max-width:736px) and (orientation: portrait){
+    nav {
+        align-items: center;
+    }
+    nav .logo{
+        width: 30%;
+        position: absolute;
+        left: 0px;
+    }
+    nav .logo img{
+        padding-top: 20px;
+    }
+    nav ul{
+        position: fixed;
+        top: 44px;
+        width: 100%;
+        background: #1abc9c;
+        max-height: 0;
+        overflow: hidden;
+    }
+    nav li {
+        display: block;
+        width: 100%;
+        padding: 5px;
+    }
+    nav a {
+        width: 100%;
+        display: block;
+    }
+    nav li:hover{
+        background: darkcyan;
+    }
+    label {
+        display: block;
+        padding: 0px 10px;
+        font-size: 30px;
+        cursor: pointer;
+        position: absolute;
+        right: 2%;
+    }
+    label:hover{
+        color: white;
+    }
+    nav #nav-button:checked~ul {
+        max-height: 100%;
+        transition: all is ease-out;
+    }
 }
 
 h1{
